@@ -6,3 +6,5 @@ census_2010_df <- read.csv("2010_Census_Block_Seattle_-_Population_Statistics.cs
 
 clean_kc_df <- filter(kc_2020_df, Place == "Seattle") 
 # something crazy
+
+# testing
