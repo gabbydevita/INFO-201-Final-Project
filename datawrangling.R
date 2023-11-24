@@ -8,3 +8,7 @@ clean_kc_df <- filter(kc_2020_df, Place == "Seattle")
 # something crazy
 
 # testing
+clean_kc_df <- subset(clean_kc_df, select = -c(ACRES_WATER, ACRES_LAND, GEOID, POP_OVER_18, POP_UNDER_18, HU, HU_OCC,
+                                               HU_VACANT, GQ_TOTAL_POP, GQI_CORRECT_ADULT, GQI_CORRECT_JUV, GQI_NURSING_FACIL,
+                                               GQI_INST_OTHER, GQNI_COLLEGE_HOUSING, GQNI_MILITARY, GQNI_NONINST_OTHER))
+census_2010_df <- subset(census_2010_df, select = -c(ACRES_WATER, ACRES_LAND, ACRES_TOTAL, GEO_TYPE, GEOID10))
