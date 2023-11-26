@@ -13,9 +13,12 @@ clean_kc_df <- subset(clean_kc_df, select = -c(ACRES_WATER, ACRES_LAND, GEOID, P
                                                GQI_INST_OTHER, GQNI_COLLEGE_HOUSING, GQNI_MILITARY, GQNI_NONINST_OTHER))
 census_2010_df <- subset(census_2010_df, select = -c(ACRES_WATER, ACRES_LAND, ACRES_TOTAL, GEO_TYPE, GEOID10))
 
-testing_df <- summarize(group_by(clean_kc_df, BLOCK), 
-                        total_pop = sum(TOT_POP), 
-                        poc_pop = sum(POC), 
-                        white_pop = sum(WHITE_ALONE))
-testing_df <- filter(testing_df, total_pop > 0)
+testing_kc_df <- summarize(group_by(clean_kc_df, BLOCK), 
+                        total_pop_2020 = sum(TOT_POP), 
+                        poc_pop_2020 = sum(POC), 
+                        white_pop_2020 = sum(WHITE_ALONE), 
+                        black_pop_2020 = sum(BLACK_ALONE), 
+                        asian_pop_2020 = sum(ASIAN_ALONE), 
+                        am_native_pop_2020 = sum(AMI_ALONE))
+testing_kc_df <- filter(testing_kc_df, total_pop_2020 > 0)
 
