@@ -1076,3 +1076,6 @@ pop_2020_df <- summarise(group_by(pop_2020_df, neighborhood),
 # Merging 
 df <- merge(x = pop_2010_df, y = pop_2020_df, by = "neighborhood", all = TRUE)
 
+# Exporting as CSV
+write.csv(df, "Seattle_Neighborhood_Demographics.csv", row.names = TRUE)
+
