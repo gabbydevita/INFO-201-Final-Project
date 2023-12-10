@@ -205,9 +205,11 @@ international_change_df[international_change_df$demographic == "Hispanic", "perc
 international_change_df[international_change_df$demographic == "Other", "perc_change"] <- round(((39 - 9) / 9) * 100, 2)
 international_change_df[international_change_df$demographic == "Two or More", "perc_change"] <- round(((563 - 191) / 191) * 100, 2)
 
+
+
 story_view <- fluidPage(
-  h2("The Story"),
-  h3("Overview"),
+  h2("The Story 📜"),
+  h3("Overview 💌"),
   p("While people of all backgrounds make Seattle a cherished place, the city still has a problem. 
     From people's ethnicity, class, cultural behavior, and customs, Seattle is where the diverse population 
     can appreciate each other's heritage. However, the issue lies with Seattle modernizing its infrastructure. 
@@ -238,19 +240,34 @@ story_view <- fluidPage(
 )
 
 analysis_view <- fluidPage(
+  
+  tags$style(HTML("
+    h2 {
+            background-color: #ED95F1;
+            color: Black;
+            }
+    h3 {
+            background-color: #F7D8F8;
+            color: Black;
+            }
+    h4 {
+            background-color: #FCEFFC;
+            color: Black;
+            }")),
+  
   titlePanel("Neighborhood Demographic Analysis"), 
   tabsetPanel(
     tabPanel(
       "Beacon Hill",
-      h3("About the neighborhood:"),
+      h3("About the neighborhood: 🏘️"),
       p("Among the three neighborhoods shown, in 2010, Beacon Hill had the highest population of people of 
         color. With the largest demographic being of people with Asian background. The second largest demographic 
         being of people of Caucasian background. The data shows that the people of color population have 
         increased in 2020 by about 19%. However, the demographics are disproportionate, as certain groups such as 
         Asian, Caucasian, Hispanic are increasing in population. Whereas other groups such as African American, 
         Native American and Pacific Islander have decreased by the year 2020."),
-      h3("Population Demographics in Beacon Hill"),
-      h4("Populations in 2010 versus 2020"),
+      h3("Population Demographics in Beacon Hill 📊"),
+      h4("Populations in 2010 versus 2020 ⚖️"),
       sidebarLayout(
         sidebarPanel(
           selectInput(
@@ -264,7 +281,7 @@ analysis_view <- fluidPage(
         )
       ), 
       h4("Percent changes"), 
-      h5("This shows the percentage increase of each of these demographics in Beacon Hill"),
+      h5("This shows the percentage increase of each of these demographics in Beacon Hill 📈"),
       sidebarLayout(
         sidebarPanel(
           h5("Decide if you'd like to include outliers:"),
@@ -278,19 +295,20 @@ analysis_view <- fluidPage(
           plotlyOutput(outputId = "beacon_perc_bar")
         )
       ),
-      h5("This shows the percentage decrease of each of these demographics in Beacon Hill"),
+      h5("This shows the percentage decrease of each of these demographics in Beacon Hill 📉"),
       plotlyOutput(outputId = "beacon_perc_dec")
     ),
     tabPanel(
       "International District",
-      h3("About the neighborhood:"),
+      h3("About the neighborhood: 🏘️"),
       p("Similar to Beacon Hill, International districts largest demographic is of people with Asian 
         background in 2010. Along with the second largest demographic being of people of Caucasian 
         background. The population of people of color has increased by approximately 36%. While each 
         demographic varies in population, all but one group of people of color shows an increase in 
         population at International district by 2020. Pacific Islander being the outlier, its population
         decreased by approximately 39%."),
-      h3("Population Demographics in International District"),
+      h3("Population Demographics in International District 📊"),
+      h4("Populations in 2010 versus 2020 ⚖️"),
       sidebarLayout(
         sidebarPanel(
           selectInput(
@@ -304,7 +322,7 @@ analysis_view <- fluidPage(
         )
       ), 
       h4("Percent Changes"),
-      h5("This shows the percentage increase of each of these demographics in the International District"),
+      h5("This shows the percentage increase of each of these demographics in the International District 📈"),
       sidebarLayout(
         sidebarPanel(
           h5("Decide if you'd like to include outliers:"),
@@ -318,19 +336,20 @@ analysis_view <- fluidPage(
           plotlyOutput(outputId = "international_perc_bar")
         )
       ), 
-      h5("This shows the percentage decrease of each of these demographics in the International District"),
+      h5("This shows the percentage decrease of each of these demographics in the International District 📉"),
       plotlyOutput(outputId = "international_perc_dec")
     ),
     tabPanel(
       "Central District",
-      h3("About the neighborhood:"),
+      h3("About the neighborhood: 🏘️"),
       p("Central district, the neighborhood with the largest demographic being of people with Caucasian 
         background in 2010 yet it has highest population of African Americans out of all three neighborhoods 
         shown in 2010. Central district is known for being a predominantly African American neighborhood for 
         generations. However, the data shows that by 2020, the African American population has decreased by 
         approximately 12%. Along with Pacific Islander population decreasing by approximately 33%. The Asian 
         population skyrocketed in Central District by approximately 66% from 2010 to the year 2020."),
-      h3("Population Demographics in Central District"),
+      h3("Population Demographics in Central District 📊"),
+      h4("Populations in 2010 versus 2020 ⚖️"),
       sidebarLayout(
         sidebarPanel(
           selectInput(
@@ -344,7 +363,7 @@ analysis_view <- fluidPage(
         )
       ), 
       h4("Percent Changes"),
-      h5("This shows the percentage increase of each of these demographics in the Central District"),
+      h5("This shows the percentage increase of each of these demographics in the Central District 📈"),
       sidebarLayout(
         sidebarPanel(
           h5("Decide if you'd like to include outliers:"),
@@ -358,10 +377,60 @@ analysis_view <- fluidPage(
           plotlyOutput(outputId = "central_perc_bar")
         )
       ), 
-      h5("This shows the percentage decrease of each of these demographics in the Central District"),
+      h5("This shows the percentage decrease of each of these demographics in the Central District 📉"),
       plotlyOutput(outputId = "central_perc_dec")
     )
   )
+)
+
+conclusion_view <- fluidPage(
+  titlePanel("Our Conclusions ️🔎"), 
+  h3("Overall:"),
+  p("Beacon Hill, International District, and Central District, overall have high populations of people of color. 
+    However, what we drew from these graphs is that the demographics are not proportionate. While certain populations 
+    may increase throughout the decade, such as Asians, Hispanics, and Caucasians, other populations are decreasing such 
+    as African Americans and Pacific Islanders. Gentrification is the only reason why certain demographics are decreasing 
+    in population. While Seattle modernizing its infrastructure may seem good to certain groups of people, it should not be
+    normalized as these graphs prove further evidence of other people of color moving away from neighborhoods they’ve lived 
+    in for generations."),
+  h3("In each neighborhood:"),
+  h4("Beacon Hill"),
+  p("Beacon Hill is one of the most diverse in Seattle, but in recent years, gentrification has hit it hard, causing 
+    the black, pacific islander, and native populations to decrease over the span of a decade. The white population being one 
+    of the demographics to increase the most also proves the impacts that gentrification has had in this neighborhood."),
+  h4("International District"),
+  p("The International District is less affected by gentrification in comparison to Beacon Hill and Central District, but 
+    the pacific islander population decreased by nearly 40%. This large decrease in population shows that although gentrification 
+    isn't affecting the International District as heavily as other neighborhoods, there are still drastic effects."),
+  h4("Central District"),
+  p("It is safe to say that the Central District is being affected the most as gentrification continues to affect 
+    our city. In 2010, there was a large black population, the second highest population in the neighborhood, behind white people. 
+    Unfortunately, the black population has decreased by around 12%. Black people have been displaced from the Central District 
+    because of middle and upper class people moving in and driving the housing prices up. Things like these are affect low-income 
+    families living in these neighborhoods that were previously affected by disinvestment in housing."),
+)
+
+about_view <- fluidPage(
+  titlePanel("About the authors 📖"),
+  h3("Cecilia Meza 🫶💁‍♀️"),
+  p("My name is Cecilia Meza. I am a first year direct admit to the University of Washington School of Informatics. I am 
+    interested in coding and the social sciences. Seeing how we can use coding to shine a spotlight on marginalized 
+    communities. Such as this project, my motivation was to call out Seattle's gentrification issue and be a voice for people of 
+    color being displaced in their neighborhoods."),
+  h3("Gabriella deVita 🐢🦈"),
+  p("My name is Gabby deVita. I'm a first year at University of Washington, hoping to pursue a degree in Applied Mathematics, 
+    and focusing my studies on data science and statistics. I am passionate about this project because before starting it, 
+    I had visited the International District and saw how many small businesses were closed and how many new apartments were 
+    being built. This made me think of the gentrification sweeping our country, and sparked the interest in how it is affecting 
+    the most diverse Seattle neighborhoods."),
+  titlePanel("Sources 📲"),
+  h3("Census Data:"),
+  p("2010_Census_Block_Seattle_-_Population_Statistics.csv"), 
+  p("King_County_Census_2020_blocks_with_PL_94-171_Redistricting__Data.csv"),
+  h3("Other Information:"),
+  p("Seattle's Race and Segregation Story in Maps 1920-2020 - Seattle Civil Rights and Labor History Project (washington.edu)"),
+  p("https://depts.washington.edu/civilr/maps_race_seattle.htm"),
+  p("https://storymaps.arcgis.com/stories/95408ea17fee4078aecaa6294d633456")
 )
 
 ui <- navbarPage(
@@ -373,6 +442,14 @@ ui <- navbarPage(
   tabPanel(
     "Analysis",
     analysis_view
+  ), 
+  tabPanel(
+    "Conclusions",
+    conclusion_view
+  ), 
+  tabPanel(
+    "About", 
+    about_view
   )
 )
 
