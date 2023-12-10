@@ -207,9 +207,34 @@ international_change_df[international_change_df$demographic == "Two or More", "p
 
 story_view <- fluidPage(
   h2("The Story"),
-  p("Blah blah blah story yes blah blah"),
-  h3("These are the neighborhoods we will be looking at: "),
-  img(src = "annotated_seattle_neighborhoods.pdf", height = 450, width = 300),
+  h3("Overview"),
+  p("While people of all backgrounds make Seattle a cherished place, the city still has a problem. 
+    From people's ethnicity, class, cultural behavior, and customs, Seattle is where the diverse population 
+    can appreciate each other's heritage. However, the issue lies with Seattle modernizing its infrastructure. 
+    Certain groups of people of color have been struggling to keep up with these changes. Thus, being displaced
+    in their own neighborhoods. After comparing recent and past statistics, it is clear that Seattle is 
+    undergoing an epidemic of gentrification."),
+  p("What results from having multiple ethnic groups in a large city is that people with similar 
+    backgrounds will live close to one another. Therefore, different parts of Seattle will naturally 
+    have neighborhoods dominating a particular group. Neighborhoods such as Central District, International 
+    District, and Beacon Hill will have varying demographics in racial/ethnic groups. "),
+  p("The term gentrification was coined in the 1960s by British sociologist Ruth Glass to describe the displacement
+    of working-class residents of London by middle-class newcomers. The definition, as said by Oxford Languages, 
+    is 'the process whereby the character of a poor urban area is changed by wealthier people moving in, 
+    improving housing, and attracting new businesses, typically displacing current inhabitants in the process.' 
+    Therefore, gentrification has been around for a while. However, the growing statistics that follow will 
+    continue to be alarming."),
+  p("Seattle is constantly modernizing its infrastructure, including the neighborhoods that have housed
+    people of color for generations. However, the change is not something to brush off. Housing prices in 
+    America, especially Seattle, have been steadily increasing over the past few years. According to the 
+    Seattle Times, the median sale price of homes in King County in September of 2023 was over $900k. 
+    Mortgage rates have hit a 23-year high, affecting low income residents of neighborhoods that are being 
+    gentrified. The residents of these neighborhoods are being displaced, causing the cost of housing to 
+    increase at an alarming rate."),
+  p("Although gentrification has been around for a long time, it should not be normalized. Choosing to 
+    look the other way with Seattle's gentrification is equivalent to fanning the fire. Staying vocal 
+    is how to avoid ignorance concerning this epidemic. By doing so, statistics become a voice for people 
+    of color."),
 )
 
 analysis_view <- fluidPage(
@@ -217,6 +242,13 @@ analysis_view <- fluidPage(
   tabsetPanel(
     tabPanel(
       "Beacon Hill",
+      h3("About the neighborhood:"),
+      p("Among the three neighborhoods shown, in 2010, Beacon Hill had the highest population of people of 
+        color. With the largest demographic being of people with Asian background. The second largest demographic 
+        being of people of Caucasian background. The data shows that the people of color population have 
+        increased in 2020 by about 19%. However, the demographics are disproportionate, as certain groups such as 
+        Asian, Caucasian, Hispanic are increasing in population. Whereas other groups such as African American, 
+        Native American and Pacific Islander have decreased by the year 2020."),
       h3("Population Demographics in Beacon Hill"),
       h4("Populations in 2010 versus 2020"),
       sidebarLayout(
@@ -251,6 +283,13 @@ analysis_view <- fluidPage(
     ),
     tabPanel(
       "International District",
+      h3("About the neighborhood:"),
+      p("Similar to Beacon Hill, International districts largest demographic is of people with Asian 
+        background in 2010. Along with the second largest demographic being of people of Caucasian 
+        background. The population of people of color has increased by approximately 36%. While each 
+        demographic varies in population, all but one group of people of color shows an increase in 
+        population at International district by 2020. Pacific Islander being the outlier, its population
+        decreased by approximately 39%."),
       h3("Population Demographics in International District"),
       sidebarLayout(
         sidebarPanel(
@@ -284,6 +323,13 @@ analysis_view <- fluidPage(
     ),
     tabPanel(
       "Central District",
+      h3("About the neighborhood:"),
+      p("Central district, the neighborhood with the largest demographic being of people with Caucasian 
+        background in 2010 yet it has highest population of African Americans out of all three neighborhoods 
+        shown in 2010. Central district is known for being a predominantly African American neighborhood for 
+        generations. However, the data shows that by 2020, the African American population has decreased by 
+        approximately 12%. Along with Pacific Islander population decreasing by approximately 33%. The Asian 
+        population skyrocketed in Central District by approximately 66% from 2010 to the year 2020."),
       h3("Population Demographics in Central District"),
       sidebarLayout(
         sidebarPanel(
