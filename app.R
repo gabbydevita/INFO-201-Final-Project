@@ -4,9 +4,14 @@ library(ggplot2)
 library(fmsb)
 library(plotly)
 library(tidyr)  
-library(leaflet)
+library(rsconnect)
 
 df <- read.csv("Seattle_Neighborhood_Demographics.csv")
+
+
+rsconnect::setAccountInfo(name='seattle-gentrification',
+                          token='431A80C64746035887C0423C30A23BBF',
+                          secret='hCoiEhksTYANkluNyYE1uMbDlgY4mNyizJIxjCYV')
 
 
 beacon_2020 <- c(pull(filter(df, neighborhood == "Beacon Hill"), total_pop_2020), 
@@ -582,5 +587,8 @@ server <- function(input, output) {
 }
 
 shinyApp(ui, server)
+
+# URL for the website:
+# https://seattle-gentrification.shinyapps.io/INFO-201-Final-Project/
 
 
